@@ -43,8 +43,8 @@ img {
     justify-content: space-between;
     align-items: center;
 
-    background-color: rgba(8, 18, 31, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: rgba(2, 8, 7, 0.92);
+    backdrop-filter: blur(12px);
 
     color: white;
 
@@ -59,11 +59,23 @@ img {
     justify-content: center;
     align-items: center;
 
-    border: 2px solid #ff5f73;
+    border: 2px solid #26d9a2;
     border-radius: 50%;
 
     font-size: 15px;
     font-weight: 800;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.logo:hover {
+    background-color: #26d9a2;
+    color: #04100d;
+
+    box-shadow: 0 0 20px rgba(38, 217, 162, 0.35);
 }
 
 .nav-links {
@@ -72,20 +84,43 @@ img {
 }
 
 .nav-links a {
+    position: relative;
+
     font-size: 14px;
     font-weight: 600;
 
     transition: color 0.3s ease;
 }
 
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #26d9a2;
+
+    transition: width 0.3s ease;
+}
+
 .nav-links a:hover {
-    color: #ff5f73;
+    color: #35f0b5;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 
 /* Hero */
 
 .hero {
+    position: relative;
+
     min-height: 720px;
 
     padding: 140px 8% 90px;
@@ -97,16 +132,49 @@ img {
 
     background:
         radial-gradient(
-            circle at 80% 30%,
-            rgba(26, 211, 210, 0.18),
-            transparent 28%
+            circle at 79% 40%,
+            rgba(0, 255, 174, 0.3) 0%,
+            rgba(0, 190, 132, 0.17) 22%,
+            rgba(0, 110, 78, 0.08) 40%,
+            transparent 58%
         ),
-        #08121f;
+        radial-gradient(
+            circle at 9% 92%,
+            rgba(0, 170, 119, 0.22) 0%,
+            transparent 36%
+        ),
+        linear-gradient(
+            115deg,
+            #020504 0%,
+            #050b09 38%,
+            #07241d 70%,
+            #06372d 100%
+        );
 
     overflow: hidden;
 }
 
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.2),
+            transparent 48%,
+            rgba(17, 86, 67, 0.08)
+        );
+
+    pointer-events: none;
+}
+
 .hero-content {
+    position: relative;
+    z-index: 2;
+
     width: 100%;
     max-width: 1250px;
 
@@ -122,7 +190,7 @@ img {
 .hello {
     margin-bottom: 8px;
 
-    color: #1ed0cc;
+    color: #35f0b5;
 
     font-size: 22px;
     font-weight: 700;
@@ -136,7 +204,9 @@ img {
 }
 
 .hero h1 span {
-    color: #ff5f73;
+    color: #26d9a2;
+
+    text-shadow: 0 0 20px rgba(38, 217, 162, 0.24);
 }
 
 .subtitle {
@@ -144,7 +214,7 @@ img {
 
     max-width: 700px;
 
-    color: #d2dae4;
+    color: #d6e1dd;
 
     font-size: clamp(19px, 2vw, 27px);
     font-weight: 500;
@@ -157,7 +227,7 @@ img {
 
     margin-top: 22px;
 
-    color: #9eaaba;
+    color: #aabbb5;
 
     font-size: 17px;
     line-height: 1.8;
@@ -187,7 +257,9 @@ img {
 
     transition:
         transform 0.3s ease,
-        background-color 0.3s ease;
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .hero-buttons a:hover {
@@ -195,19 +267,41 @@ img {
 }
 
 .primary-button {
-    background-color: #ff5f73;
+    background:
+        linear-gradient(
+            135deg,
+            #35f0b5,
+            #12b985
+        );
+
+    color: #04100d;
+
+    box-shadow: 0 8px 25px rgba(18, 185, 133, 0.2);
 }
 
 .primary-button:hover {
-    background-color: #ff425d;
+    background:
+        linear-gradient(
+            135deg,
+            #5af7c6,
+            #1bcf97
+        );
+
+    box-shadow: 0 12px 30px rgba(38, 217, 162, 0.3);
 }
 
 .secondary-button {
-    border: 1px solid #536174;
+    border: 1px solid #26d9a2;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.12);
 }
 
 .secondary-button:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #35f0b5;
+    background-color: rgba(38, 217, 162, 0.1);
+
+    box-shadow: 0 0 20px rgba(38, 217, 162, 0.13);
 }
 
 
@@ -231,7 +325,33 @@ img {
 
     border-radius: 50%;
 
-    background-color: #ff5f73;
+    background:
+        linear-gradient(
+            135deg,
+            #35f0b5 0%,
+            #18d39b 48%,
+            #00996d 100%
+        );
+
+    box-shadow:
+        0 0 70px rgba(0, 220, 155, 0.3),
+        0 0 140px rgba(0, 180, 125, 0.18);
+}
+
+.profile-circle::after {
+    content: "";
+
+    position: absolute;
+    inset: 22px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            rgba(255, 255, 255, 0.18),
+            transparent 35%
+        );
 }
 
 .profile-image {
@@ -253,8 +373,12 @@ img {
     width: 58px;
     height: 58px;
 
-    border: 5px solid #1ed0cc;
+    border: 5px solid #35f0b5;
     border-radius: 50%;
+
+    box-shadow:
+        0 0 20px rgba(53, 240, 181, 0.25),
+        inset 0 0 15px rgba(53, 240, 181, 0.12);
 }
 
 
@@ -270,7 +394,7 @@ img {
 .section-label {
     margin-bottom: 12px;
 
-    color: #ff5f73;
+    color: #12b985;
 
     font-size: 13px;
     font-weight: 800;
@@ -324,7 +448,7 @@ img {
 }
 
 
-/* Existing Block Style */
+/* Project Cards */
 
 .projects {
     max-width: 1250px;
@@ -342,26 +466,37 @@ img {
 
     background-color: #f7f7f5;
 
+    border: 1px solid rgba(18, 185, 133, 0.08);
     border-radius: 12px;
 
     box-shadow: 0 13px 35px rgba(15, 23, 42, 0.1);
 
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
 .card:hover {
     transform: translateY(-8px);
 
-    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.16);
+    border-color: rgba(18, 185, 133, 0.28);
+
+    box-shadow:
+        0 24px 48px rgba(15, 23, 42, 0.16),
+        0 0 25px rgba(18, 185, 133, 0.08);
 }
 
 .image-wrapper {
     width: 100%;
     overflow: hidden;
 
-    background-color: #d8d8d8;
+    background:
+        linear-gradient(
+            135deg,
+            #dce8e3,
+            #c8d8d2
+        );
 }
 
 .card img {
@@ -370,11 +505,14 @@ img {
 
     object-fit: cover;
 
-    transition: transform 0.5s ease;
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
 }
 
 .card:hover img {
     transform: scale(1.05);
+    filter: brightness(0.92);
 }
 
 .card-content {
@@ -384,7 +522,7 @@ img {
 .project-number {
     margin-bottom: 7px;
 
-    color: #ff5f73;
+    color: #12b985;
 
     font-size: 12px;
     font-weight: 800;
@@ -411,7 +549,7 @@ img {
 
     padding: 11px 17px;
 
-    background-color: #08121f;
+    background-color: #06110e;
     color: white;
 
     border-radius: 4px;
@@ -421,12 +559,18 @@ img {
 
     transition:
         background-color 0.3s ease,
-        transform 0.3s ease;
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .card a:hover {
-    background-color: #ff5f73;
+    background-color: #26d9a2;
+    color: #04100d;
+
     transform: translateX(3px);
+
+    box-shadow: 0 8px 20px rgba(38, 217, 162, 0.22);
 }
 
 
@@ -438,7 +582,19 @@ img {
     text-align: center;
 
     color: white;
-    background-color: #08121f;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 200, 140, 0.2),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #020504,
+            #061611,
+            #07352b
+        );
 }
 
 .contact-section h2 {
@@ -449,7 +605,7 @@ img {
 }
 
 .email-link {
-    color: #ff5f73;
+    color: #35f0b5;
 
     font-size: clamp(18px, 3vw, 30px);
     font-weight: 700;
@@ -467,8 +623,8 @@ footer {
 
     text-align: center;
 
-    color: #7e8998;
-    background-color: #050b13;
+    color: #7e918a;
+    background-color: #010302;
 
     font-size: 12px;
 }
@@ -484,11 +640,13 @@ footer {
 
     .hero {
         padding-top: 125px;
+
         text-align: center;
     }
 
     .hero-content {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
@@ -539,12 +697,41 @@ footer {
     }
 
     .hero {
-        padding-left: 6%;
-        padding-right: 6%;
+        min-height: auto;
+
+        padding: 120px 6% 70px;
     }
 
     .hero h1 {
         letter-spacing: -3px;
+    }
+
+    .hero-content {
+        gap: 25px;
+    }
+
+    .profile-area {
+        min-height: 340px;
+    }
+
+    .profile-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .profile-image {
+        width: 280px;
+        max-height: 350px;
+    }
+
+    .decor-circle {
+        top: 35px;
+        right: 5px;
+
+        width: 45px;
+        height: 45px;
+
+        border-width: 4px;
     }
 
     .about-section,
