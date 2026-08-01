@@ -365,18 +365,19 @@ img {
 .profile-area {
     position: relative;
 
-    min-height:560;
+    width: 100%;
+    min-height: 520px;
 
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .profile-circle {
     position: absolute;
 
-    width:450
-    height: 450
+    width: 420px;
+    height: 420px;
 
     border-radius: 50%;
 
@@ -391,6 +392,8 @@ img {
     box-shadow:
         0 0 70px rgba(0, 220, 155, 0.3),
         0 0 140px rgba(0, 180, 125, 0.18);
+
+    z-index: 1;
 }
 
 .profile-circle::after {
@@ -410,32 +413,34 @@ img {
 }
 
 .profile-image {
-      position:absolute;
+    position: absolute;
 
-    left:50%;
-    bottom:-35px;
+    left: 50%;
+    top: 50%;
 
-    transform:translateX(-50%) scale(1.35);
+    width: 330px;
+    height: auto;
+    max-width: none;
+    max-height: none;
 
-    transform-origin:bottom center;
+    transform: translate(-50%, -48%);
 
-    width:390px;
+    object-fit: contain;
+    object-position: center;
 
-    z-index:5;
-
-    object-fit:contain;
+    z-index: 3;
 
     filter:
-    drop-shadow(0 18px 30px rgba(0,0,0,.28));
+        drop-shadow(0 15px 30px rgba(0, 0, 0, 0.28));
 }
 
 .decor-circle {
     position: absolute;
-    top: 55px;
-    right: 25px;
+    top: 35px;
+    right: 35px;
 
-    width: 58px;
-    height: 58px;
+    width: 55px;
+    height: 55px;
 
     border: 5px solid #35f0b5;
     border-radius: 50%;
@@ -443,6 +448,8 @@ img {
     box-shadow:
         0 0 20px rgba(53, 240, 181, 0.25),
         inset 0 0 15px rgba(53, 240, 181, 0.12);
+
+    z-index: 4;
 }
 
 
@@ -724,17 +731,16 @@ footer {
     }
 
     .profile-area {
-        min-height: 400px;
+        min-height: 420px;
     }
 
     .profile-circle {
-        width: 310px;
-        height: 310px;
+        width: 330px;
+        height: 330px;
     }
 
     .profile-image {
-        width: 320px;
-        max-height: 410px;
+        width: 260px;
     }
 
     .projects {
@@ -779,13 +785,12 @@ footer {
     }
 
     .profile-circle {
-        width: 270px;
-        height: 270px;
+        width: 260px;
+        height: 260px;
     }
 
     .profile-image {
-        width: 280px;
-        max-height: 350px;
+        width: 210px;
     }
 
     .decor-circle {
