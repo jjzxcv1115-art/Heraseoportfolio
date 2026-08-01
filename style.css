@@ -410,14 +410,26 @@ img {
 }
 
 .profile-image {
-    position: relative;
-    z-index: 2;
+     position:absolute;
 
-    width: min(390px, 100%);
-    max-height: 510px;
+    bottom:-10px;
 
-    object-fit: contain;
-    object-position: bottom;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:480px;
+
+    max-width:110%;
+
+    height:auto;
+
+    object-fit:contain;
+
+    z-index:5;
+
+    filter:
+        drop-shadow(0 20px 45px rgba(0,0,0,.35));
 }
 
 .decor-circle {
